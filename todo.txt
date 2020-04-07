@@ -1,0 +1,3 @@
+Sprawzdam czy dziala
+
+New todoItem added
