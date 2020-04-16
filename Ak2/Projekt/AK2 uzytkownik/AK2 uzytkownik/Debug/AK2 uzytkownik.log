@@ -1,2 +1,4 @@
 ﻿  AK2 uzytkownik.cpp
-  AK2 uzytkownik.vcxproj -> C:\Users\neshi\source\repos\AK2 uzytkownik\Debug\AK2 uzytkownik.exe
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(102,7): warning C4101: "incoming": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(170): warning C4715: "algorytmPierwszosci”: niewszystkie ścieżki kodu zwracają wartość
+  AK2 uzytkownik.vcxproj -> C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\Debug\AK2 uzytkownik.exe

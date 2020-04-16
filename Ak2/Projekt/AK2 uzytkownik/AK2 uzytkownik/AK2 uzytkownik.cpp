@@ -14,6 +14,8 @@
 #include <deque>
 #include <stack>
 #include <list>
+#include <stdlib.h>
+#include "SerialPort.h"
 
 using std::cout;
 using std::cin;
@@ -34,7 +36,7 @@ void Naglowek()
 	system("cls"); //zamiast system cls bedzie funckja czyszczenia z biblioteki ncurses
 	cout << "					  Architektura komputerow 2\n";
 	cout << "       Aplikacja sprawdzajaca czy podana liczba jest liczba pierwsza\n";
-	cout << "\n         Autorzy: Wojciech Ziebicki [241 141] & Artur Soltys [251 xxx]\n\n\n";
+	cout << "\n         Autorzy: Wojciech Ziebicki [241 141] & Artur Soltys [248854]\n\n\n";
 }
 void MenuGlowne()
 {
@@ -86,22 +88,111 @@ void ZapiszWynikiDoPliku(int liczba, bool wyniczek)
 	}
 }
 
+int algorytmPierwszosci(string liczba)
+{
+	int i = 0;
+	char output[MAX_DATA_LENGTH];
+	char commport1[] = "\\\\.\\COM1";
+	char commport2[] = "\\\\.\\COM2";
+	char commport3[] = "\\\\.\\COM3";
+	char commport4[] = "\\\\.\\COM4";
+	char* port = commport1;
+	char* tab[] = { commport1, commport2, commport3, commport4 };
+
+	char incoming[MAX_DATA_LENGTH];
+
+	
+	SerialPort arduino(tab[i]);
+	
+	if (arduino.isConnected())
+	{
+		cout << "Polaczono sie na porcie: " << tab[i] << "\n\n";
+	}
+	else
+	{
+		cout << "Nie udalo sie polaczyc na procie: " << tab[i] << "\n\n";
+		i++;
+
+		SerialPort arduino(tab[i]);
+		if (arduino.isConnected()) cout << "Polaczono sie na porcie: " << tab[i] << "\n\n";
+		else
+		{
+			cout << "Nie udalo sie polaczyc na procie: " << tab[i] << "\n\n";
+			i++;
+
+			SerialPort arduino(tab[i]);
+
+
+		}
+		if (arduino.isConnected()) cout << "Polaczono sie na porcie: " << tab[i] << "\n\n";
+		else
+		{
+			cout << "Nie udalo sie polaczyc na procie: " << tab[i] << "\n\n";
+			i++;
+
+			SerialPort arduino(tab[i]);
+
+			if (arduino.isConnected()) cout << "Polaczono sie na porcie: " << tab[i] << "\n\n";
+			else
+			{
+				cout << "Nie znaleziono arduino na zadnym porcie, sprawdz poolaczenie i sprobuj ponownie";
+				liczba = _getch();
+				return 0;
+			}
+
+		}
+
+
+	}
+	
+
+	while (arduino.isConnected()) //wykonuj dopoki arduino jest podlaczone
+	{
+		string data; //to co wysylamy do arduino
+		data = liczba;
+		char* charArray = new char[data.size() + 1];
+		copy(data.begin(), data.end(), charArray);
+		charArray[data.size()] = '\n';
+
+		cout << "Pytanie do arduino: czy liczba " + liczba + 
+			" jest liczba pierwsza?\n1 - tak    2 - nie";
+		arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+		arduino.readSerialPort(output, MAX_DATA_LENGTH);
+
+		cout << "Odpowiedz arduino: ";
+		cout << output;
+
+		delete[] charArray;
+		int tempx = atoi(output);
+
+		return tempx;
+	}
+}
+
 string SzukajPierwszosci(int liczba)
 {
-	//algorytm szukaj pierwszosci z polaczeniem arduino
 	string temp;
 
 	stringstream ss;
 	ss << liczba;
 	string str = ss.str();
 
+	//przekomentuj TO POD SPODEM JESLI CHCESZ SPRAWDZIC CZY DZIALA RESZA BEZ LAZCENIA SIE Z ARDUINO
+	//int tempLiczba = 0;
+	int tempLiczba = algorytmPierwszosci(str);
+
+
 	temp = "Liczba " + str;
-	if (wynik)
+	if (tempLiczba == 1)
 	{
 		temp += " jest liczba pierwsza";
 		return temp;
 	}
-	temp += " nie jest liczba pierwsza";
+	else if (tempLiczba == 2)
+	{
+		temp += " nie jest liczba pierwsza";
+	}
+	else temp = "Odczytano cos innego";
 	return temp;
 }
 
@@ -161,6 +252,7 @@ int main()
 {
 	int as;
 	do {
+		
 		system("CLS");
 		MenuGlowne();
 
