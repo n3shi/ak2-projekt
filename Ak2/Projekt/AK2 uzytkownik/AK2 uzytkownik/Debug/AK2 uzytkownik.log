@@ -1,4 +1,14 @@
 ﻿  AK2 uzytkownik.cpp
-C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(102,7): warning C4101: "incoming": lokalna zmienna, do której nie istnieje odwołanie
-C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(170): warning C4715: "algorytmPierwszosci”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(60,84): warning C4244: "return": konwersja z "_Rep" do "long", możliwa utrata danych
+          with
+          [
+              _Rep=__int64
+          ]
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(152,7): warning C4101: "incoming": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(266,41): warning C4244: "argument": konwersja z "double" do "const _Elem", możliwa utrata danych
+          with
+          [
+              _Elem=char
+          ]
+C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\AK2 uzytkownik\AK2 uzytkownik.cpp(194): warning C4715: "algorytmPierwszosci”: niewszystkie ścieżki kodu zwracają wartość
   AK2 uzytkownik.vcxproj -> C:\Users\neshi\Desktop\Developerka\GitHub\Ak2\Projekt\AK2 uzytkownik\Debug\AK2 uzytkownik.exe
