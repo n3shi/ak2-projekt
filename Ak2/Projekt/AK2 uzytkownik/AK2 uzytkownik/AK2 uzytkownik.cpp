@@ -151,9 +151,9 @@ int algorytmPierwszosci(string liczba)
 
 	char incoming[MAX_DATA_LENGTH];
 
-	
 
-	for (int i = 0; i < 3; i++)
+
+	for (int i = 3; i > 0; i--)
 	{
 		SerialPort arduino(tab[i]);
 		canSave = false;
@@ -170,16 +170,19 @@ int algorytmPierwszosci(string liczba)
 				charArray[data.size()] = '\n';
 
 				cout << "Pytanie do arduino: czy liczba " + liczba +
-					" jest liczba pierwsza?\n(odpowiedz od arduino bedzie taka: 1 - tak    2 - nie)";
+					" jest liczba pierwsza?\n(odpowiedz od arduino bedzie taka: 1 - tak    0 - nie)" << endl;
 				arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
 				arduino.readSerialPort(output, MAX_DATA_LENGTH);
 
-				canSave = true;
-				cout << "Odpowiedz arduino: ";
-				cout << output;
 
 				delete[] charArray;
 				int tempx = atoi(output);
+				canSave = true;
+				cout << "Odpowiedz arduino: ";
+				//cout << output;
+				cout << tempx << endl;
+
+
 
 				return tempx;
 			}
@@ -188,7 +191,7 @@ int algorytmPierwszosci(string liczba)
 		}
 		else
 		{
-			cout << "Nie udalo sie polaczyc na procie: " << tab[i] << "\n\n";
+			cout << "Nie udalo sie polaczyc na porcie: " << tab[i] << "\n\n";
 		}
 	}
 }
@@ -209,15 +212,15 @@ string SzukajPierwszosci(int liczba)
 	temp = "Liczba " + str;
 	if (tempLiczba == 1)
 	{
-		temp += " jest liczba pierwsza";
+		temp += " jest liczba pierwsza \n";
 		wynik = true;
 	}
-	else if (tempLiczba == 2)
+	else if (tempLiczba == 0)
 	{
-		temp += " nie jest liczba pierwsza";
+		temp += " nie jest liczba pierwsza\n";
 		wynik = false;
 	}
-	else temp = "Odczytano cos innego";
+	else temp = "Odczytano cos innego \n";
 	return temp;
 }
 
@@ -263,14 +266,14 @@ void ZnajdzLPierw()
 			string odpowiedz = SzukajPierwszosci(liczba);
 			time.czasStop();
 
-			czasWykonania = time.czasWykonania() * 0.001;
+			czasWykonania = to_string(time.czasWykonania() * 0.001);
 			czasWykonania += " s";
 			cout << odpowiedz;
 
 			ZapiszWynikiDoPliku(liczba, wynik, czasWykonania);
 
-		cout << "\n\nCzy chcesz powtorzyc szukanie liczby? \n 1 - powtorz\n 0 - wyjdz" << endl;
-		cin >> x;
+			cout << "\n\nCzy chcesz powtorzyc szukanie liczby? \n 1 - powtorz\n 0 - wyjdz" << endl;
+			cin >> x;
 		}
 	} while (x == 1); //tu sie konczy doWhile
 }
@@ -283,12 +286,12 @@ void Wyniki(string nazwa)
 	uchwyt.open(nazwa); //otwieramy plik: plik.txt (plik - nazwa pliku, txt - rozszerzenie)
 	string linia;
 
-	if(uchwyt.good())
-	while (!uchwyt.eof())
-	{
-		getline(uchwyt, linia); //pobierz linijkę
-		cout << linia << endl; //wypisz na ekranie
-	 }
+	if (uchwyt.good())
+		while (!uchwyt.eof())
+		{
+			getline(uchwyt, linia); //pobierz linijkę
+			cout << linia << endl; //wypisz na ekranie
+		}
 	uchwyt.close(); //zamykamy plik
 }
 
@@ -331,7 +334,7 @@ int main()
 {
 	int as;
 	do {
-		
+
 		system("CLS");
 		MenuGlowne();
 
@@ -345,5 +348,5 @@ int main()
 	} while (as != '.');
 
 	return 0;
-    cout << "Hello World!\n";
+	cout << "Hello World!\n";
 }
