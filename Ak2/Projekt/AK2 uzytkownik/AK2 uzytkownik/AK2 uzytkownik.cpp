@@ -142,9 +142,9 @@ int algorytmPierwszosci(string liczba)
 {
 	int i = 0;
 	char output[MAX_DATA_LENGTH];
-	char commport1[] = "\\\\.\\COM1";
-	char commport2[] = "\\\\.\\COM2";
-	char commport3[] = "\\\\.\\COM3";
+	char commport1[] = "\\\\.\\COM2";
+	char commport2[] = "\\\\.\\COM3";
+	char commport3[] = "\\\\.\\COM1";
 	char commport4[] = "\\\\.\\COM4";
 	char* port = commport1;
 	char* tab[] = { commport1, commport2, commport3, commport4 };
@@ -153,7 +153,7 @@ int algorytmPierwszosci(string liczba)
 
 
 
-	for (int i = 3; i > 0; i--)
+	for (int i = 0; i < 4; i++)
 	{
 		SerialPort arduino(tab[i]);
 		canSave = false;
@@ -181,8 +181,6 @@ int algorytmPierwszosci(string liczba)
 				cout << "Odpowiedz arduino: ";
 				//cout << output;
 				cout << tempx << endl;
-
-
 
 				return tempx;
 			}
