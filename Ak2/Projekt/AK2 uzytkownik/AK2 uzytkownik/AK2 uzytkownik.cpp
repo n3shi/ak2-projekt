@@ -235,6 +235,7 @@ void WczytajLiczbe()
 	}
 	else if (liczba == 2)
 	{
+		srand(time(NULL));
 		liczba = rand();
 	}
 	if (liczba < 0) liczba = liczba * -1; //na wszelki wypadek robimy tylko na dodatnich

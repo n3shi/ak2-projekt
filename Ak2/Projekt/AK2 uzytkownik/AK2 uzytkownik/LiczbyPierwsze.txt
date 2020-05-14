@@ -1,3 +1,9 @@
-13
-7
-11
+
+13 jest liczba pierwsza. Czas obliczen: 2.201000 s
+17 jest liczba pierwsza. Czas obliczen: 2.202000 s
+17 jest liczba pierwsza. Czas obliczen: 2.206000 s
+41 jest liczba pierwsza. Czas obliczen: 2.203000 s
+7 jest liczba pierwsza. Czas obliczen: 2.202000 s
+41 jest liczba pierwsza. Czas obliczen: 2.201000 s
+15913 jest liczba pierwsza. Czas obliczen: 2.201000 s
+15959 jest liczba pierwsza. Czas obliczen: 2.202000 s

@@ -1,1 +1,20 @@
-41
+
+12 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+12 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+15208 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15234 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15257 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15276 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+15302 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+39 nie jest liczba pierwsza. Czas obliczen: 2.203000 s
+56 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15795 nie jest liczba pierwsza. Czas obliczen: 2.211000 s
+15900 nie jest liczba pierwsza. Czas obliczen: 2.203000 s
+15926 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+15942 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15972 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+15985 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+15995 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+16008 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
+16239 nie jest liczba pierwsza. Czas obliczen: 2.201000 s
+16256 nie jest liczba pierwsza. Czas obliczen: 2.202000 s
